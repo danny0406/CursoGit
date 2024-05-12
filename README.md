@@ -84,3 +84,53 @@ Cuando trabajamos con Git, nuestros archivos pueden vivir y moverse entre **4 di
 Esto pasa cuando guardas los cambios de un archivo en el área de **Staging (con el comando `git add`)** pero, antes de hacer commit para guardar los cambios en el repositorio, haces nuevos cambios que todavía no han sido guardados en el área de **Staging .**
 
 Para comprobar el estado de los archivos escribimos **`git status`**, de esta forma sabrás cuales están en el staging area listo para ser enviados al repositorio.
+## 3. Ramas, merge y conflictos.
+### 3.1. Ramas o Branch's
+![Image of git branch schema](https://s3.amazonaws.com/media-p.slid.es/uploads/843308/images/4760613/git-flow-commands-without-flow.png)
+###  ¿Qué es un Branch (Rama)?
+Una rama o branch es una versión del código del proyecto sobre el que estás trabajando. Estas ramas ayudan a mantener el orden en el control de versiones y manipular el código de forma segura.
+ 
+                        **Insertar imagen**
+
+En otras palabras, un branch o rama en Git es una rama que proviene de otra. Imagina un árbol, que tiene una rama gruesa, y otra más fina, en la rama más gruesa tenemos los commits principales y en la rama fina tenemos otros commits que pueden ser de hotfix, devlopment entre otros.ㅤ
+### Para crear una nueva rama
+**`git branch <nombre_rama>`**
+
+ Por ejemplo: **`git branch someTest`**
+
+### Para cambiarse de rama
+**`git checkout <nombre_rama>`** 
+
+Por ejemplo: **`git checkout mi-rama`**
+
+**`git switch <nombre_rama>`** 
+
+Por ejemplo: **`git switch mi-rama`**
+
+### Trabaja en tu rama
+Dentro de tu rama puedes trabajar normal, hacer tus commits y avanzar en el proyecto, pero lo que haces está sólo en esa rama.
+
+Si cambias de rama sin más lo que hayas hecho en esa rama no lo vas a ver.
+
+Para poder juntar todo tienes que **mergear** (fundir o fusionar) las ramas.
+
+### 3.2. Merge
+### ¿Qué es un Merge?
+Hacer un merge es la fusion de dos ramas, debes estar sobre la rama que quieres que permanezca (Por ejemplo: hacer un merge de un feature a la rama develop).
+
+**`git merge <Nombre rama a fusionar>`**
+
+**Crear un nuevo commit en la rama master combinando**
+**los cambios de la rama cabecera:**
+
+- **`git checkout master`**
+- **`git merge cabecera`**
+
+
+**Crear un nuevo commit en la rama cabecera combinando los cambios de cualquier otra rama:**
+
+- **`git checkout cabecera`**
+- **`git merge <cualquier-otra-rama>`**
+
+Debemos tomar en cuenta que al fusionar dos ramas, pueden ocasionarse **conflictos.**
+
