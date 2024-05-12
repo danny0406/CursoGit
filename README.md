@@ -1,10 +1,8 @@
 # Curso de Git y Github
 
-## Indice
-
 
 ## 1. Introduccion a Git
-<p align="center"><img src ="Images/git.jpg" width="500" /></p>
+<p align="center"><img src ="Images/git.jpg" width="300" /></p>
 
 ### 1.1. ¿Qué es git?
 
@@ -146,3 +144,96 @@ Esto lo conocemos como conflicto y lo podemos resolver manualmente, solo debemos
 Recuerda que siempre debemos crear un nuevo commit para aplicar los cambios del merge. Si Git puede resolver el conflicto hará commit automáticamente. Pero, en caso de no pueda resolverlo, debemos solucionarlo y hacer el commit.
 
 Los archivos con conflictos por el comando **`git merge`** entran en un nuevo estado que conocemos como **Unmerged**. Funcionan muy parecido a los archivos en estado **Unstaged**, algo así como un estado intermedio entre **Untracked** y **Unstaged**, solo debemos ejecutar **`git add`** para pasarlos al área de staging y **`git commit`** para aplicar los cambios en el repositorio.
+## 4. GitHub
+Las cuentas te permiten organizar y controlar el acceso a dicho código. Existen tres tipos de cuentas en GitHub.
+
+- Cuentas personales
+- Cuentas de organización
+- Cuenta de empresa
+
+A cerca de los tipos de cuenta: https://docs.github.com/es/get-started/learning-about-github/types-of-github-accounts
+### 4.1. Registrarse para una cuenta personal nueva
+1. Vaya a https://github.com/
+
+2. Haga clic en **Registrarse.**
+
+3. Sigue las indicaciones para crear tu cuenta personal.
+
+Durante el registro, se te pedirá que verifiques tu dirección de correo electrónico. Sin una dirección de correo electrónico verificada, no podrás completar algunas tareas básicas de GitHub, como crear un repositorio.
+
+Si tienes problemas para comprobar la dirección de correo electrónico, hay algunos pasos de solución de problemas que puedes seguir. Para obtener más información, vea **«Verificar tu dirección de correo electrónico».**
+
+### 4.2. Creando Repositorio remoto en github
+
+- Documentacion GitHub , creacion de repositorio rapido:
+
+https://docs.github.com/es/repositories/creating-and-managing-repositories/quickstart-for-repositories?tool=webui#create-a-repository
+
+
+
+### 4.3. Repositorio remoto
+<p align="center"><img src ="Images/git-github-workflow.png" width="500" /></p>
+GitHub es una de la posibilidades que tienes para crear tu repositorio de forma remota. Para ello debes crear un repositorio, darle un nombre y si quieres escribes una descripción. El comando que te permite asociar tu repositorio local (previamente inicializado) con el remoto es: 
+
+**`git remote add`** **`origin https://github.com/nombre-usuario/nombre-repositorio.git`**
+
+
+luego para subir el repositorio local ejecutas git push -u origin master, origin master es como se nombra a este repositorio remoto.
+
+Si lo que deseas es descargar tu repositorio en otro equipo puedes clonar tu repositorio remoto con el comando: 
+
+**`git clone`** `https://github.com/nombre-usuario/nombre-repositorio.git` 
+
+Por último ya que alguien más del equipo de desarrollo pudo haber subido algún cambio, para no estar trabajando en una versión desactualizada debes bajar la última actualización de tu repositorio remoto a tu local, esto se hace con `git pull origin master`. Pull trae los cambio y push los envía.
+
+`git fetch` Descarga el historial del repo remoto.
+
+### Creando un projecto desde cero desde local
+git init
+git add README.md
+git add .
+git commit -m "first commit"
+git remote add origin https:// github.com / <userName> / <repoName>.git
+git push --force origin master
+
+### ¿Tu repositorio local no está apuntando al repositorio remoto?
+
+`git remote add <nombre_para_remoto> <url>`
+
+Ejemplo: **`git remote add origin https://github.com/usuario/nombre_del_repositorio.git`**
+
+`git push -u origin master`
+
+Cuando hagas push, recuerda hacerlo a ambos (o tendrás un bonito caos...)
+
+### Quieres apuntar a un nuevo proyecto en Github?
+
+`git remote set-url <remote_name> <remote_url>` 
+
+`git remote set-url origin nombre-app`
+
+### Configurar Git
+
+`git config --global user.name "nombre"`
+
+`git config --global user.email "tu_mail@example.com"`
+
+`git config --list`
+
+Comprobar q está todo ok.
+
+### Clonar un repositorio de GitHub al local
+<p align="center"><img src ="Images/staging-git.png" width="350" /></p>
+
+`git clone <url del proyecto>`
+
+Crear un repositorio en local dentro de la carpeta que queremos, pero trayéndolo de GitHub.
+
+La url la cogemos de la ventana que sale al pulsar el botón de 'Clone or download'.
+
+Hay una opción para mejorar la velocidad y el espacio en disco al clonar un repositorio
+`git clone <url del proyecto> --depth 1` con el valor a 1
+No te descargará todo el historial del repositorio, a veces, ni siquiera lo necesitas. Especialmente interesante para procesos en CI.
+
+#### Elimina Git del proyecto para empezar de nuevo
+`rm -rf .git`
