@@ -347,6 +347,24 @@ Los alias te ayudan definir una serie de comandos que pueden ser usados en lugar
 #### Eliminacion de un Alias
 
 **`git config --global --unset alias.co`**
+## 6. Resumen de comandos git
+
+|Comando                  | Función                                                    |
+|-------------------------|------------------------------------------------------------|
+| git init                | inicializa un repositorio                                  |
+| git add                 | agrega cambios a staging area                              |
+| git status              | muestra el estado de los cambios                           |
+| git reset HEAD          | elimina un cambio del staging area                         |
+| git commit              | envía un cambio del staging al repositorio                 |
+| git rm                  | borra cambio del repositorio                               |
+| git checkout            | trae la última versión del cambio, crea y cambia de rama   |
+| git branch              | muestra las ramas                                          |
+| git merge               | fusiona las ramas                                          |
+| git remote add origin   | relacionar repo local a un repo remoto                     |
+| git clone               | clonar repositorio remoto                                  |
+| git pull                | trae la última versión del repo remoto                     |
+| git push                | envía los cambio al repo remoto                            |
+
 
 
 
