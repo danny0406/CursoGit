@@ -237,3 +237,116 @@ No te descargará todo el historial del repositorio, a veces, ni siquiera lo nec
 
 #### Elimina Git del proyecto para empezar de nuevo
 `rm -rf .git`
+
+## 5. Trucos de Git, Hooks y Alias 
+
+## 5.1. Trucasos en Git
+
+### Recuperar un archivo en concreto de otra rama o commit:
+
+**`git checkout <SHA> <archivo-e>`**
+
+### Guardar cambios temporalmente:
+
+**`git stash`**
+
+**`git stash -u`**
+
+**`git stash pop`**
+### Detectar que commit es el que ha introducido un bug:
+
+**`git bisect`**
+
+**`git bisect start`**
+
+**`git bisect bad`**
+
+**`git bisect good <commit>`**
+
+**`git bisect reset`**
+
+### Aplicar cambios de commits en específico:
+
+**`git cherry-pick <commit>`**
+
+
+### Cambiar el nombre de un commit
+
+**`git commit --amend -m <descripcion>`**
+
+## 5.2. Hooks
+
+El hook es un punto de enganche, es la posibilidad de ejecutar script cada vez que ocurre un evento en git.
+
+<p align="center"><img src ="Images/git-hooks.jpeg" width="500" /></p>
+Tenemos dos tipos de Hook's :
+
+- Del lado del servidor
+- Del lado del Cliente
+
+### Creacion de un Hook
+
+Para crear un hook debemos crear un archivo en la carpeta **`.git/hooks`** con el nombre del hook que queremos crear.
+
+### Hooks del lado del **SERVIDOR:**
+
+- **pre-receive:**
+
+    Ayudan a verificar que el usuario que intenta grabar los commits tiene permisos necesarios para hacerlo.
+
+- **update:**
+
+  Se puede llegar de una forma a atomizar cada actualización.
+
+- **post-receive:**
+  Enviar un correo a todos los usuarios del repositorio que se han grabado nuevos cambios en el repositorio remoto.
+
+### Hooks del lado del **CLIENTE:**
+
+Estos solo funcionan dentro del repositorio local.
+
+- **pre-commit**:
+
+    Puede ser un buen sitio para ejecutar el linter sobre los archivos que han sido modificados
+
+- **prepare-commit-msg**:
+    
+    Para modificar el mensaje del commit o añadir cualquier información extra.
+- **commit-msg**:
+    
+    Es el sitio perfecto para hacer todas las comprobaciones pertinentes al mensaje.
+
+- **post-commit:**
+
+    Su uso principal es la de notificar por Slack.
+- **pre-push:**
+    
+    Para ejecutar una bateria de tests.
+
+- **post-merge & post-checkout:**
+     
+     Permite limpiar el directorio de trabajo, tras realizar un checkout, o el de limpiar las ramas que ya no se usan tras realizar un merge.
+
+## 5.3.  Alias
+
+Los alias te ayudan definir una serie de comandos que pueden ser usados en lugar de los nombres completos.
+
+- **`git cm -> git commit`**
+
+- **`git sts -> git status`**
+
+
+#### Creacion de un Alias
+
+**`git config --global alias.co commit`**
+
+
+**`git config --global alias.wo "log --oneline"`**
+
+
+#### Eliminacion de un Alias
+
+**`git config --global --unset alias.co`**
+
+
+
