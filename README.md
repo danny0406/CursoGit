@@ -4,6 +4,8 @@
 
 
 ## 1. Introduccion a Git
+<p align="center"><img src ="Images/git.jpg" width="500" /></p>
+
 ### 1.1. ¿Qué es git?
 
 Es importante dejar claro que git no es lo mismo que GitHub, git es un sistema de control de versiones Open Source creado en el año 2005 por Linus Torvalds, el creador de Linux, por otro lado GitHub es un servicio de alojamiento para proyectos versionados con git, de esta forma podemos tener una copia local y una remota de nuestros repositorios.
@@ -89,8 +91,7 @@ Para comprobar el estado de los archivos escribimos **`git status`**, de esta fo
 ![Image of git branch schema](https://s3.amazonaws.com/media-p.slid.es/uploads/843308/images/4760613/git-flow-commands-without-flow.png)
 ###  ¿Qué es un Branch (Rama)?
 Una rama o branch es una versión del código del proyecto sobre el que estás trabajando. Estas ramas ayudan a mantener el orden en el control de versiones y manipular el código de forma segura.
- 
-                        **Insertar imagen**
+<p align="center"><img src ="Images/git-branch.png" width="450"/></p>
 
 En otras palabras, un branch o rama en Git es una rama que proviene de otra. Imagina un árbol, que tiene una rama gruesa, y otra más fina, en la rama más gruesa tenemos los commits principales y en la rama fina tenemos otros commits que pueden ser de hotfix, devlopment entre otros.ㅤ
 ### Para crear una nueva rama
